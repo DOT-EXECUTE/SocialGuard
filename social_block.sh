@@ -10,9 +10,10 @@ block() {
   sudo cp "$HOSTS_FILE" "$HOSTS_FILE.bak"
   echo "$MARKER START" | sudo tee -a "$HOSTS_FILE" >/dev/null
   while read -r domain; do
-    if [[ $domain != "# ~/.blocklist" ]]; then
-      echo "127.0.0.1 $domain" | sudo tee -a "$HOSTS_FILE" >/dev/null
+    if grep -q '^#' <<<$domain; then
+      continue
     fi
+    echo "127.0.0.1 $domain" | sudo tee -a "$HOSTS_FILE" >/dev/null
   done <"$BLOCKLIST"
   echo "$MARKER END" | sudo tee -a "$HOSTS_FILE" >/dev/null
   echo "[✓] Sites blocked."
