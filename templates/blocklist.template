@@ -1,0 +1,9 @@
+# ~/.blocklist
+# Template blocklist
+#
+# Messages prefixed with '#' serve to 'comment out' words.
+# It is imposible to add a comment at the end of line (As of writing)
+#
+# NOTE: ENSURE YOU DO NOT HAVE A SPACE BETWEEN THIS AND ALL URLS.
+# Doing so will result in '127.0.0.1     ' in your /etc/hosts file
+example.com
